@@ -7,23 +7,35 @@
     <title>Document</title>
   </head>
   <body>
-    <form>
+    <form onsubmit="event.preventDefault(); displayFruit()">
+      <h3>西出C班</h3>
       <br><br>
       <div style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
-  　　  <label for="text-input">くだもの</label>
+  　　  <label for="text-input">好きなくだものを入力して！</label>
   　　  <br>
   　　  <input type="text" id="text-input" name="text-input" required>
         <br><br>
   　　  <button type="submit">入力</button>
       </div>
-      <div style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+      <div id="fruit-list" style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
         <br>
-        <p>１バナナ</p>
-        <p>２オレンジ</p>
-        <p>３バナナ</p>
-        <p>４バナナ</p>
+        <p>食べ物リスト</p>
+        
         <br>
       </div>
 　　</form>
+
+    <script>
+      function displayFruit() {
+        const input = document.getElementById("text-input");
+        const fruitList = document.getElementById("fruit-list");
+
+        const newFruit = document.createElement("p");
+        newFruit.textContent = input.value;
+
+        fruitList.appendChild(newFruit);
+      }
+    </script>
   </body>
 </html>
+
