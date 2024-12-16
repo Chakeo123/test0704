@@ -1,41 +1,22 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>BE KOBE AR</title>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/ar.js/1.7.2/aframe/build/aframe-ar.min.js"></script>
   </head>
-  <body>
-    <form onsubmit="event.preventDefault(); displayFruit()">
-      <h3>西出C班</h3>
-      <br><br>
-      <div style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
-  　　  <label for="text-input">好きなくだものを入力して！</label>
-  　　  <br>
-  　　  <input type="text" id="text-input" name="text-input" required>
-        <br><br>
-  　　  <button type="submit">入力</button>
-      </div>
-      <div id="fruit-list" style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
-        <br>
-        <p>食べ物リスト</p>
-        
-        <br>
-      </div>
-　　</form>
+  <body style="margin: 0; overflow: hidden;">
+    <!-- A-Frame Scene -->
+    <a-scene embedded arjs="sourceType: webcam;">
+      <!-- BE KOBE Text on Screen -->
+      <a-entity
+        text="value: BE KOBE; color: red; align: center;"
+        position="0 1 -3"
+        scale="2 2 2">
+      </a-entity>
 
-    <script>
-      function displayFruit() {
-        const input = document.getElementById("text-input");
-        const fruitList = document.getElementById("fruit-list");
-
-        const newFruit = document.createElement("p");
-        newFruit.textContent = input.value;
-
-        fruitList.appendChild(newFruit);
-      }
-    </script>
+      <!-- AR Camera -->
+      <a-entity camera></a-entity>
+    </a-scene>
   </body>
 </html>
-
